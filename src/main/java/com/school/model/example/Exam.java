@@ -10,6 +10,15 @@ public class Exam {
     private double coefficient;
 
     public Exam(int id, String title, Course course, Instant dateTime, double coefficient) {
+        if (title == null) {
+            throw new NullPointerException("The exam title cannot be null");
+        }
+        if (course == null) {
+            throw new NullPointerException("The course cannot be null");
+        }
+        if (coefficient < 0) {
+            throw new IllegalArgumentException("The coefficient cannot be negative");
+        }
         this.id = id;
         this.title = title;
         this.course = course;
